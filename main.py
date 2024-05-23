@@ -2,6 +2,12 @@ import os
 import subprocess
 import random
 from datetime import datetime
+# 必要モジュールのインポート
+from dotenv import load_dotenv
+
+
+# .envファイルの内容を読み込見込む
+load_dotenv()
 
 # 設定
 REPO_PATH = 'C:\\Users\\killc\\playground\\github-grass'  # 正しいリポジトリのパス
