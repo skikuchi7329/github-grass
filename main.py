@@ -2,15 +2,10 @@ import os
 import subprocess
 import random
 from datetime import datetime
-# 必要モジュールのインポート
-from dotenv import load_dotenv
-
-
-# .envファイルの内容を読み込見込む
-load_dotenv()
+import config
 
 # 設定
-REPO_PATH = 'C:\\Users\\killc\\playground\\github-grass'  # 正しいリポジトリのパス
+REPO_PATH = config.path  # 正しいリポジトリのパス
 COMMIT_MESSAGE = 'Automated commit'
 COMMITS = random.randint(1, 10)  # 1~10のランダムなコミット数
 
