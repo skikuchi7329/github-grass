@@ -1,27 +1,40 @@
 import os
 import subprocess
-from datetime import datetime, timedelta
+import random
+from datetime import datetime
 
 # 設定
-REPO_PATH = 'github-grass'  # リポジトリのパス
+REPO_PATH = 'C:\\Users\\killc\\playground\\github-grass'  # 正しいリポジトリのパス
 COMMIT_MESSAGE = 'Automated commit'
-DAYS = 30  # 何日分のコミットを行うか
+COMMITS = random.randint(1, 10)  # 1~10のランダムなコミット数
+
+print("Starting script...")
 
 # リポジトリのパスに移動
-os.chdir(REPO_PATH)
+try:
+    os.chdir(REPO_PATH)
+    print(f"Changed directory to {REPO_PATH}")
+except FileNotFoundError:
+    print(f"Error: The directory {REPO_PATH} does not exist.")
+    exit(1)
 
-# コミットを行う日付を生成
-start_date = datetime.now() - timedelta(days=DAYS)
-
-for i in range(DAYS):
-    commit_date = start_date + timedelta(days=i)
-    date_str = commit_date.strftime('%Y-%m-%d %H:%M:%S')
+# コミットを行う
+for i in range(COMMITS):
+    now = datetime.now()
+    date_str = now.strftime('%Y-%m-%d %H:%M:%S')
     with open('file.txt', 'a') as file:
-        file.write(f'Commit on {date_str}\n')
+        file.write(f'Commit {i+1} on {date_str}\n')
+    print(f"Added entry to file.txt for commit {i+1}")
     
     # Gitコマンドを実行
     subprocess.run(['git', 'add', '.'])
-    subprocess.run(['git', 'commit', '--date', date_str, '-m', COMMIT_MESSAGE])
+    print(f"git add executed for commit {i+1}")
+    
+    subprocess.run(['git', 'commit', '-m', f"{COMMIT_MESSAGE} {i+1}"])
+    print(f"git commit executed for commit {i+1}")
 
 # すべてのコミットをプッシュ
 subprocess.run(['git', 'push', 'origin', 'main'])
+print("All commits pushed to origin/main")
+
+print("Script finished.")
