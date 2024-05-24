@@ -5,9 +5,9 @@ from datetime import datetime
 import config
 
 # 設定
-REPO_PATH = config.path  # 正しいリポジトリのパス
+REPO_PATH = config.path  
 COMMIT_MESSAGE = 'Automated commit'
-COMMITS = random.randint(1, 10)  # 1~10のランダムなコミット数
+COMMITS = random.randint(1, 10)  
 
 print("Starting script...")
 
