@@ -2,9 +2,10 @@ import os
 import subprocess
 import random
 from datetime import datetime
+import config
 
 # 設定
-REPO_PATH = r'C:\\Users\\killc\\playground\\github-grass'  # r'' を使用してエスケープシーケンスを避ける
+REPO_PATH = config.path # r'' を使用してエスケープシーケンスを避ける
 COMMIT_MESSAGE = 'Automated commit'
 COMMITS = random.randint(1, 10)  
 
