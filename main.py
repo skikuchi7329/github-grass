@@ -7,7 +7,7 @@ import config
 # 設定
 REPO_PATH = config.path # r'' を使用してエスケープシーケンスを避ける
 COMMIT_MESSAGE = 'Automated commit'
-COMMITS = random.randint(1, 10)  
+COMMITS = random.randint(1, 3)  
 
 print("Starting script...")
 
