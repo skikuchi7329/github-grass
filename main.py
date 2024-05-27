@@ -2,9 +2,13 @@ import os
 import subprocess
 import random
 from datetime import datetime
-import config
+# from dotenv import load_dotenv
 
-# 設定
+# load_dotenv()
+
+
+# path = os.environ('REPO_PATH')
+
 REPO_PATH = 'C:\\Users\\killc\\playground\\github-grass'
 COMMIT_MESSAGE = 'Automated commit'
 COMMITS = random.randint(1, 3)  
