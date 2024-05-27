@@ -5,7 +5,7 @@ from datetime import datetime
 import config
 
 # 設定
-REPO_PATH = config.path # r'' を使用してエスケープシーケンスを避ける
+REPO_PATH = 'C:\\Users\\killc\\playground\\github-grass'
 COMMIT_MESSAGE = 'Automated commit'
 COMMITS = random.randint(1, 3)  
 
